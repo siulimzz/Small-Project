@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>圣杯布局</title>
+    <style >
+        body {
+  min-width: 550px;      /* 2x LC width + RC width */
+  text-align:center;
+}
+#container {
+    height:300px;
+  padding-left: 200px;   /* LC width */
+  padding-right: 150px;  /* RC width */
+}
+#container .column {
+  position: relative;
+  float: left;
+  height:300px;
+}
+#center {
+  width: 100%;
+  background:#A8E6CF;
+  text-align:justify;
+}
+#left {
+  width: 200px;          /* LC width */
+  right: 200px;          /* LC width */
+  margin-left: -100%;
+  background:#DCEDC1;
+}
+#right {
+  width: 150px;          /* RC width */
+  margin-right: -150px;  /* RC width */
+  background:#FFD3B6;
+}
+#footer {
+  clear: both;
+  height:50px;
+  background:#FFAAA5;
+}
+#header{
+    height:50px;
+    background:#FFAAA5;
+}
+/*** IE6 Fix ***/
+* html #left {
+  left: 150px;           /* RC width */
+}
+
+
+    </style>
+</head>
+<body>
+    <h2>圣杯布局</h2>
+    <h5><a href="wings.html">双飞翼布局</a></h5>
+    <div id="header">header</div><div id="container">
+        <div id="center" class="column">圣杯布局：为了中间div内容不被遮挡，将中间div设置了左右padding-left和padding-right后，将左右两个div用相对布局position: relative并分别配合right和left属性，以便左右两栏div移动后不遮挡中间div。
+</div>
+        <div id="left" class="column">left</div>
+        <div id="right" class="column">right</div>
+    </div><div id="footer">footer</div>
+    
+</body>
+</html>
