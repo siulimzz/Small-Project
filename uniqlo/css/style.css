@@ -1,0 +1,141 @@
+﻿*{
+    margin:0;
+    padding:0;
+    text-decoration:none;
+    border:none;
+}
+body {
+    min-width:780px;
+    font: 12px/1.5 Tahoma,"微软雅黑",Arial,Helvetica,simsun,sans-serif;
+    color: #3c3c3c;
+}
+#content{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+    background:#f0f0f0;
+}
+.service{
+    background:#000;
+    color:#fff;
+    padding:5px 10px;
+    border-radius:5px;
+    position:fixed;
+    right:20px;
+    bottom:10px;
+}
+.service:hover{
+    cursor:pointer;
+    text-decoration:underline;
+}
+
+
+.head{
+    margin:10px 7px;
+    background:#fff;
+}
+.navbar-collapse{
+    padding-left:0;
+    background:#fff;
+}
+.container-fluid {
+    padding:0;
+}
+.navbar-collapse .nav li a:hover{
+    color:red;
+}
+
+#head{
+    margin-bottom:20px;
+}
+
+.info{
+    background:#fff;
+    width:100%;
+    height:50px;
+    border:1px solid #ccc;
+    border-top:5px solid #ff0000;
+    z-index:99;
+}
+.info .search{
+    display:inline-block;
+    margin:0 30px 0 20px;
+    padding:5px 0;
+    width:200px;
+    border-bottom:3px solid #c7c7c7;
+    text-align:center;
+}
+.info .search *{
+    display:inline-block;
+}
+.info .search input{
+    width:160px;
+    padding:5px;
+}
+.info .search button{
+    width:21px;
+    height:25px;
+    background:url(../img/search.jpg);
+    vertical-align:middle;
+    float:right;
+}
+.info a{
+    display:inline-block;
+    margin:5px 10px;
+    line-height:30px;
+    color:#6a6a6a;
+}
+.info a:hover{
+    color:red;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+
+.clothes{
+    width:100%;
+    background:#fff;
+}
+.clothes>div{
+    padding:20px 0;
+}
+.clothes>div h4{
+    text-align:center;
+    word-spacing:2px;
+    font-weight:600;
+}
+.clothes>div h4 span{
+    color:#878787;
+    font-weight:300;
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+.footer .container{
+    width:80%;
+    text-align:center;
+}
+.footer input{
+    padding:15px 10px;
+    width:400px;
+}
+.footer button{
+    height:50px;
+    width:80px;
+    background:#000;
+    color:#fff;
+}
+.footer .row{
+    text-align:left;
+
+}
+.footer .row h5{
+    padding:20px 0 10px;
+}
+.footer .row a{
+    color:#000;
+}
+.footer .row a:hover{
+    cursor:pointer;
+    text-decoration:none;
+}
