@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>图片轮播</title>
+    <style>
+   
+        body,div,ul,li,a,img{margin: 0;padding: 0; text-align:center;}
+        h2{color:pink;}
+  ul,li{list-style: none;}
+  a{text-decoration: none;}
+ 
+  #wrapper{position: relative;margin: 30px auto;width: 400px;height: 400px;}
+  #banner{position:relative;width: 400px;height: 400px;overflow: hidden;}
+  .imgList{position:relative;width:2000px;height:400px;z-index: 10;overflow: hidden;}
+  .imgList li{float:left;display: inline;}
+   .imgList img{
+       width:400px;
+       height:400px;
+   }
+  #prev,
+  #next{position: absolute;top:180px;z-index: 20;cursor: pointer;opacity: 0.4;filter:alpha(opacity=20);}
+  #prev{left: 10px;}
+  #next{right: 10px;}
+  #prev:hover,
+  #next:hover{opacity: 0.5;filter:alpha(opacity=50);}
+  .bg{position: absolute;bottom: 0;width: 400px;height: 40px;z-index:20;opacity: 0.4;filter:alpha(opacity=40);background: black;}
+  .infoList{position: absolute;left: 10px;bottom: 10px;z-index: 30;}
+  .infoList li{display: none;}
+  .infoList .infoOn{display: inline;color: white;}
+  .indexList{position: absolute;right: 10px;bottom: 5px;z-index: 30;}
+  .indexList li{float: left;margin-right: 5px;width:20px;height:20px;padding:2px;border: 2px solid #F6A9CE;border-radius:50%;cursor: pointer;color:#fff;}
+  .indexList .indexOn{background: #9E3668;font-weight: bold;color: white;}
+    </style>
+</head>
+<body>
+    <h2>red velvet</h2>
+                <div id="wrapper">
+                    
+                    <div id="banner">
+                        
+                        <ul class="imgList">
+                            
+                            <li><a href="#"><img src="img/img1.jpg"  alt="Irene"></a></li>
+                            <li><a href="#"><img src="img/img2.jpg"  alt="Wendy"></a></li>
+                            <li><a href="#"><img src="img/img3.jpg"  alt="Joy"></a></li>
+                            <li><a href="#"><img src="img/img4.jpg"  alt="Yeri"></a></li>
+                            <li><a href="#"><img src="img/img5.jpg"  alt="SeulGi"></a></li>
+                        </ul>
+                        <img src="./img/prev.png"  id="prev">
+                        <img src="./img/next.png"  id="next">
+                        <div class="bg"></div> 
+                        <ul class="infoList">
+                            
+                            <li class="infoOn">Irene</li>
+                            <li>Wendy</li>
+                            <li>Joy</li>
+                            <li>Yeri</li>
+                            <li>SeulGi</li>
+                        </ul>
+                        <ul class="indexList">
+                            
+                            <li class="indexOn">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                    </div>
+                </div>
+            
+   
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.11.1/jquery.js"></script>
+    <script type="text/javascript">
+        
+  var curIndex = 0, 
+      imgLen = $(".imgList li").length; 
+     
+  var autoChange = setInterval(function(){
+    if(curIndex < imgLen-1){
+      curIndex ++;
+    }else{
+      curIndex = 0;
+    }
+    
+    changeTo(curIndex);
+  },2500);
+   
+  $("#prev").hover(function(){
+    
+    clearInterval(autoChange);
+  },function(){
+    
+    autoChangeAgain();
+  });
+  
+  $("#prev").click(function(){
+    
+    curIndex = (curIndex > 0) ? (--curIndex) : (imgLen - 1);
+    changeTo(curIndex);
+  });
+  
+  $("#next").hover(function(){
+    
+    clearInterval(autoChange);
+  },function(){
+    
+    autoChangeAgain();
+  });
+  
+  $("#next").click(function(){
+    curIndex = (curIndex < imgLen - 1) ? (++curIndex) : 0;
+    changeTo(curIndex);
+  });
+  
+  $(".indexList").find("li").each(function(item){
+    $(this).hover(function(){
+      clearInterval(autoChange);
+      changeTo(item);
+      curIndex = item;
+    },function(){
+      autoChangeAgain();
+    });
+  });
+  
+  function autoChangeAgain(){
+      autoChange = setInterval(function(){
+      if(curIndex < imgLen-1){
+        curIndex ++;
+      }else{
+        curIndex = 0;
+      }
+    
+      changeTo(curIndex);
+    },2500);
+    }
+  function changeTo(num){
+    var goLeft = num * 400;
+    $(".imgList").animate({left: "-" + goLeft + "px"},500);
+    $(".infoList").find("li").removeClass("infoOn").eq(num).addClass("infoOn");
+    $(".indexList").find("li").removeClass("indexOn").eq(num).addClass("indexOn");
+  }
+    </script>
+</body>
+</html>
